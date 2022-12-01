@@ -1,0 +1,29 @@
+namespace AdventOfCode;
+
+class Day1
+{
+    public static void Main()
+    {
+        string[] lines = File.ReadAllLines("Input.txt");
+        int max1 = 0;
+        int max2 = 0;
+        int max3 = 0;
+        int count = 0;
+        List<int> list = new List<int>();
+        for (int i = 0; i < lines.Length + 1; i++)
+        {
+            if (i < lines.Length && lines[i] != "")
+            {
+                count += int.Parse(lines[i]);
+            }
+            else
+            {
+                list.Add(count);
+                count = 0;
+            }
+        }
+        list.Sort();
+        list.Reverse();
+        Console.WriteLine(list[0] + list[1] + list[2]);
+    }
+}
